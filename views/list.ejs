@@ -1,0 +1,45 @@
+<%- include("partials/header") -%>
+
+
+
+<div class="container-fluid" style="background-image: url('/images/morning.jpeg'); background-size: cover;">
+    <div class="cover">
+       <h1>To Do List</h1>
+       <h3>To do or not to do...that is the question?</h3>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<div class="card" style="background-image: url('/images/download.jpeg'); background-size: cover;">
+    <div class="top">
+        <h2 class="date"><%=Date %></h2>
+       
+            <form action="/delete" method="post">
+            <% newItems.forEach(function(newItem){%>
+                <div class="item">
+                    <input type="checkbox" name="checkbox" value="<%=newItem._id%>" onChange="this.form.submit()">
+                    <h4><%= newItem.name %></h4>  
+                </div>
+                <input type="hidden" name="listName" value="<%=Date%>"></input>
+            </form>
+            <%}) %>
+            
+            <form action="/" method="post">            
+            <input type="text" placeholder="Add task" name="Input" class="form-control">
+            <button type="submit" id="but" name="list" value="<%=Date%>">+</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<%- include("partials/footer") -%>
